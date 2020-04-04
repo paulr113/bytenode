@@ -9,9 +9,9 @@ const babel = require("@babel/core");
 
 v8.setFlagsFromString('--no-lazy');
 
-try {
+if (Number.parseInt(process.versions.node.split('.')[0], 10) >= 12) {
   v8.setFlagsFromString('--no-flush-bytecode'); // Thanks to A-Parser (@a-parser)
-} catch (e) { }
+}
 
 const COMPILED_EXTNAME = '.jsc';
 
